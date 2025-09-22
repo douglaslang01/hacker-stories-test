@@ -9,15 +9,6 @@ describe('Hacker Stories', () => {
     beforeEach(() => {
       cy.intercept('GET', `${pathName}?query=${initialTerm}&page=0`).as('getStories')
 
-      // cy.intercept({
-      //   method: 'GET',
-      //   pathname: pathName,
-      //   query: {
-      //     query: initialTerm,
-      //     page: '0'
-      //   }
-      // }).as('getStories')
-
       cy.visit('/')
 
       cy.wait('@getStories')
@@ -44,7 +35,7 @@ describe('Hacker Stories', () => {
       cy.get('.item').should('have.length', 40)
     })
 
-    it.only('Shows only search items', () => {
+    it('Shows only search items', () => {
       cy.get('.item').should('have.length', 20)
 
       Cypress._.times(3, (k) => {
@@ -68,7 +59,7 @@ describe('Hacker Stories', () => {
 
       cy.wait('@getStories')
     })
-    it.only('Shows a max of 5 buutons for the last searched items', () => {
+    it('Shows a max of 5 buutons for the last searched items', () => {
       cy.intercept('GET', '**/search**',
         { fixture: 'empty' }
       ).as('getRandomStories')
