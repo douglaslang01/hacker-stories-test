@@ -4,6 +4,7 @@
     "cy:open": "cypress open"
   },
   "devDependencies": {
-    "cypress": "^15.2.0"
+    "cypress": "^15.2.0",
+    "faker": "^5.4.0"
   }
 }
